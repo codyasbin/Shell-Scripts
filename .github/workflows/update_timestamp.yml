@@ -1,0 +1,23 @@
+name: Update Timestamp
+
+on:
+  push:
+    branches: [main]       # runs whenever you push to main
+  workflow_dispatch:       # allows manual run
+
+jobs:
+  update-file:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Update timestamp
+        run: |
+          echo "Last run: $(date)" > last_run.txt
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add last_run.txt
+          git commit -m "Update last_run.txt" || echo "No changes"
+          git push
