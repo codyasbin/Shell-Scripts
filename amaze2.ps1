@@ -86,3 +86,5 @@ Start-Sleep 1
 TypeWriter "" 1
 TypeWriter "Awakening complete." 45 Yellow
 TypeWriter "Exit when ready." 60 DarkGray
+TypeWriter "" 1
+# End of script
